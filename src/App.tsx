@@ -38,7 +38,7 @@ export default function App() {
               <p>つまり、あなたは試合開始前から、プレーの面でも精神面でも相手をコントロールする側に立つことができるようになれます。</p>
             </div>
             <div className="mt-2">
-              <a href="#" className="block w-full bg-[#FFE500] border-4 border-black rounded-xl py-4 px-4 text-center font-bold text-lg md:text-xl shadow-[4px_4px_0_#000] hover:translate-y-[4px] hover:shadow-none transition-all cursor-pointer">
+              <a href="https://hasegawa-office053.com/%E6%88%A6%E3%81%86%E5%89%8D%E3%81%AB%E5%8B%9D%E8%B2%A0%E3%82%92%E6%B1%BA%E3%82%81%E3%82%8B%E3%80%8E%E6%83%85%E5%A0%B1%E5%8F%8E%E9%9B%86%E8%A1%93%E3%80%8F.pdf" target="_blank" rel="noopener noreferrer" className="block w-full bg-[#FFE500] border-4 border-black rounded-xl py-4 px-4 text-center font-bold text-lg md:text-xl shadow-[4px_4px_0_#000] hover:translate-y-[4px] hover:shadow-none transition-all cursor-pointer">
                 『情報収集術』のダウンロードはこちら
               </a>
             </div>
@@ -59,7 +59,7 @@ export default function App() {
 頭が真っ白になることなく、練習通りにポイントを取り切ることができるようになります。</p>
             </div>
             <div className="mt-2">
-              <a href="#" className="block w-full bg-[#FFE500] border-4 border-black rounded-xl py-4 px-4 text-center font-bold text-lg md:text-xl shadow-[4px_4px_0_#000] hover:translate-y-[4px] hover:shadow-none transition-all cursor-pointer">
+              <a href="https://youtu.be/fx448g6QPWs" target="_blank" rel="noopener noreferrer" className="block w-full bg-[#FFE500] border-4 border-black rounded-xl py-4 px-4 text-center font-bold text-lg md:text-xl shadow-[4px_4px_0_#000] hover:translate-y-[4px] hover:shadow-none transition-all cursor-pointer">
                 勝つメンタル攻略法のご視聴はこちら
               </a>
             </div>
@@ -100,7 +100,7 @@ export default function App() {
 ダブルスでよくある悩みを一気に解消することができます。</p>
             </div>
             <div className="mt-2">
-              <a href="#" className="block w-full bg-[#FFE500] border-4 border-black rounded-xl py-4 px-4 text-center font-bold text-lg md:text-xl shadow-[4px_4px_0_#000] hover:translate-y-[4px] hover:shadow-none transition-all cursor-pointer">
+              <a href="https://hasegawa-office053.com/%E3%82%BF%E3%82%99%E3%83%95%E3%82%99%E3%83%AB%E3%82%B9%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%88.pdf" target="_blank" rel="noopener noreferrer" className="block w-full bg-[#FFE500] border-4 border-black rounded-xl py-4 px-4 text-center font-bold text-lg md:text-xl shadow-[4px_4px_0_#000] hover:translate-y-[4px] hover:shadow-none transition-all cursor-pointer">
                 『試合前3分チェックリスト』のダウンロードはこちら
               </a>
             </div>

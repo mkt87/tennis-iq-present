@@ -1,6 +1,6 @@
 {
-  "name": "",
-  "description": "",
+  "name": "4大特典受け取り",
+  "description": "テニスIQ戦略 動画プログラムの4大特典受け取りページ",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
