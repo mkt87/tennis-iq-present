@@ -8,6 +8,55 @@ import tokuten1Img from './tokuten1.png';
 import tokuten2Img from './tokuten2.png';
 import tokuten3Img from './tokuten3.png';
 import tokuten4Img from './tokuten4.png';
+import step1Img from './step1.jpg';
+import step2Img from './step2.jpg';
+import step3Img from './step3.jpg';
+import step4Img from './step4.jpg';
+import step5Img from './step5.jpg';
+
+interface StepImageSlotProps {
+  src: string;
+  alt: string;
+}
+
+function StepImageSlot({ src, alt }: StepImageSlotProps) {
+  const [localSrc, setLocalSrc] = React.useState<string | null>(null);
+  const fileInputRef = React.useRef<HTMLInputElement | null>(null);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const url = URL.createObjectURL(file);
+      setLocalSrc(url);
+    }
+  };
+
+  const currentSrc = localSrc || src;
+
+  return (
+    <div
+      onClick={() => fileInputRef.current?.click()}
+      className="w-full sm:w-[220px] md:w-[230px] aspect-[4/3] rounded-xl border-2 border-black overflow-hidden bg-white relative flex items-center justify-center shrink-0 shadow-[2px_2px_0px_0px_#000] cursor-pointer group"
+      title="クリックして画像を変更できます"
+    >
+      <input
+        type="file"
+        ref={fileInputRef}
+        onChange={handleFileChange}
+        accept="image/*"
+        className="hidden"
+      />
+      <img
+        src={currentSrc}
+        alt={alt}
+        className="w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-bold pointer-events-none">
+        📷 画像を変更
+      </div>
+    </div>
+  );
+}
 
 export default function App() {
   return (
@@ -80,7 +129,7 @@ export default function App() {
               <p>これまでAIを使っても試合に勝てていなかった方は、ぜひ、ここに書かれている指示書をAIに送ってください。</p>
             </div>
             <div className="mt-2">
-              <a href="#" className="block w-full bg-[#FFE500] border-4 border-black rounded-xl py-4 px-4 text-center font-bold text-lg md:text-xl shadow-[4px_4px_0_#000] hover:translate-y-[4px] hover:shadow-none transition-all cursor-pointer">
+              <a href="https://docs.google.com/document/d/19IjIndmeyR68I_V-TPRS32UqXz8Rb2ElQfHwWoOmWMU/edit?tab=t.0" target="_blank" rel="noopener noreferrer" className="block w-full bg-[#FFE500] border-4 border-black rounded-xl py-4 px-4 text-center font-bold text-lg md:text-xl shadow-[4px_4px_0_#000] hover:translate-y-[4px] hover:shadow-none transition-all cursor-pointer">
                 秘密のAI指示書のダウンロードはこちら
               </a>
             </div>
@@ -115,54 +164,159 @@ export default function App() {
           </p>
         </div>
 
-        {/* CTA Card */}
-        <div className="bg-white border-4 border-black rounded-2xl p-6 md:p-10 shadow-[8px_8px_0_#000] w-full flex flex-col gap-8 mt-2">
-          <h2 className="text-xl md:text-3xl font-bold text-center text-black leading-relaxed">
-            【無料】個別戦略会議＆説明会の<br />お申し込みはこちら
-          </h2>
-          
-          <div className="flex flex-col gap-5">
-            {/* Step 1 */}
-            <div className="bg-[#FFF9D8] border-[3px] border-black rounded-xl p-5 flex flex-col items-start gap-3">
-              <div className="bg-black text-[#FFE500] font-bold px-4 py-1.5 text-sm md:text-base rounded-md tracking-wider">
-                STEP1
+        {/* お申し込み方法 セクション */}
+        <section className="bg-white border-3 border-[3px] border-black rounded-[28px] p-6 sm:p-8 md:p-10 shadow-[8px_8px_0px_0px_#000] w-full flex flex-col gap-6 mt-2">
+          {/* 1. セクション見出し */}
+          <div className="flex flex-col items-center text-center my-2">
+            <h2 className="text-2xl sm:text-[28px] md:text-[32px] font-black text-black leading-snug tracking-tight">
+              【無料】個別作戦会議＆説明会の<br />お申し込み方法
+            </h2>
+          </div>
+
+          {/* 2. 各ステップの内容（STEP 1 〜 5） */}
+          <div className="flex flex-col gap-4 sm:gap-5 w-full">
+            {/* STEP 1 */}
+            <div className="bg-[#FEF8D3] border-[2.5px] border-black rounded-2xl shadow-[4px_4px_0px_0px_#000] p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-6">
+              <div className="flex-1 flex flex-col items-start text-left justify-center w-full">
+                <span className="inline-block bg-black text-[#FFE600] font-black text-xs px-3 py-1 rounded tracking-wider mb-2.5">
+                  STEP1
+                </span>
+                <h3 className="font-black text-lg sm:text-xl text-black leading-snug">
+                  専用LINEに友だち追加
+                </h3>
+                <p className="text-[13px] font-bold text-black mt-2 leading-relaxed">
+                  （※すでに登録済みの方はそのままLINEを開いてください）
+                </p>
               </div>
-              <div className="font-bold text-black text-lg md:text-xl">
-                以下のLINEに登録
-              </div>
-            </div>
-            
-            {/* Step 2 */}
-            <div className="bg-[#FFF9D8] border-[3px] border-black rounded-xl p-5 flex flex-col items-start gap-3">
-              <div className="bg-black text-[#FFE500] font-bold px-4 py-1.5 text-sm md:text-base rounded-md tracking-wider">
-                STEP2
-              </div>
-              <div className="font-bold text-black text-lg md:text-xl">
-                LINEで日程調整を行う
-              </div>
+              <StepImageSlot
+                src={step1Img}
+                alt="STEP1 専用LINEに友だち追加"
+              />
             </div>
 
-            {/* Step 3 */}
-            <div className="bg-[#FFF9D8] border-[3px] border-black rounded-xl p-5 flex flex-col items-start gap-3">
-              <div className="bg-black text-[#FFE500] font-bold px-4 py-1.5 text-sm md:text-base rounded-md tracking-wider">
-                STEP3
+            {/* STEP 2 */}
+            <div className="bg-[#FEF8D3] border-[2.5px] border-black rounded-2xl shadow-[4px_4px_0px_0px_#000] p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-6">
+              <div className="flex-1 flex flex-col items-start text-left justify-center w-full">
+                <span className="inline-block bg-black text-[#FFE600] font-black text-xs px-3 py-1 rounded tracking-wider mb-2.5">
+                  STEP2
+                </span>
+                <h3 className="font-black text-lg sm:text-xl text-black leading-snug">
+                  LINEで「個別戦略」とだけ入力して送信
+                </h3>
               </div>
-              <div className="font-bold text-black text-lg md:text-xl mb-1">
-                【無料】個別戦略会議＆説明会開催
+              <StepImageSlot
+                src={step2Img}
+                alt="STEP2 LINEで「個別戦略」とだけ入力して送信"
+              />
+            </div>
+
+            {/* STEP 3 */}
+            <div className="bg-[#FEF8D3] border-[2.5px] border-black rounded-2xl shadow-[4px_4px_0px_0px_#000] p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-6">
+              <div className="flex-1 flex flex-col items-start text-left justify-center w-full">
+                <span className="inline-block bg-black text-[#FFE600] font-black text-xs px-3 py-1 rounded tracking-wider mb-2.5">
+                  STEP3
+                </span>
+                <h3 className="font-black text-lg sm:text-xl text-black leading-snug whitespace-pre-line">
+                  私からLINEに直接ご返信{"\n"}そこで日程調整を行いましょう！
+                </h3>
               </div>
-              <div className="text-sm md:text-base text-gray-800 font-bold leading-relaxed">
-                （Google Meetでの開催となりますので、送られたURLをクリックするだけです※アプリのダウンロドなどは一切不要）
+              <StepImageSlot
+                src={step3Img}
+                alt="STEP3 私からLINEに直接ご返信 そこで日程調整を行いましょう！"
+              />
+            </div>
+
+            {/* STEP 4 */}
+            <div className="bg-[#FEF8D3] border-[2.5px] border-black rounded-2xl shadow-[4px_4px_0px_0px_#000] p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-6">
+              <div className="flex-1 flex flex-col items-start text-left justify-center w-full">
+                <span className="inline-block bg-black text-[#FFE600] font-black text-xs px-3 py-1 rounded tracking-wider mb-2.5">
+                  STEP4
+                </span>
+                <h3 className="font-black text-lg sm:text-xl text-black leading-snug">
+                  日程が確定しましたら専用URLのお渡し。
+                </h3>
+                <p className="text-[13px] font-bold text-black mt-2 leading-relaxed whitespace-pre-line">
+                  「Google Meet」でのオンライン開催となりますので、アプリ等のダウンロードは一切不要。{"\n"}（URLをクリックするだけ）
+                </p>
               </div>
+              <StepImageSlot
+                src={step4Img}
+                alt="STEP4 日程が確定しましたら専用URLのお渡し"
+              />
+            </div>
+
+            {/* STEP 5 */}
+            <div className="bg-[#FEF8D3] border-[2.5px] border-black rounded-2xl shadow-[4px_4px_0px_0px_#000] p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-6">
+              <div className="flex-1 flex flex-col items-start text-left justify-center w-full">
+                <span className="inline-block bg-black text-[#FFE600] font-black text-xs px-3 py-1 rounded tracking-wider mb-2.5">
+                  STEP5
+                </span>
+                <h3 className="font-black text-lg sm:text-xl text-black leading-snug">
+                  当日、時間になりましたらURLをクリックして作戦会議スタート！
+                </h3>
+              </div>
+              <StepImageSlot
+                src={step5Img}
+                alt="STEP5 作戦会議スタート"
+              />
             </div>
           </div>
-        </div>
-        
-        {/* CTA Button */}
-        <div className="w-full mt-2">
-          <button className="w-full block bg-gradient-to-r from-[#FF6600] to-[#FF3300] border-4 border-black text-white text-lg md:text-2xl font-bold py-6 px-4 rounded-full shadow-[6px_6px_0_#000] hover:translate-y-1 hover:shadow-[4px_4px_0_#000] active:translate-y-2 active:shadow-none transition-all text-center">
-            ▶ 今すぐ【無料】個別戦略会議＆説明会に申し込む
-          </button>
-        </div>
+
+          {/* 下向き矢印（反転三角形） */}
+          <div className="flex justify-center my-3 sm:my-4">
+            <svg width="68" height="38" viewBox="0 0 68 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+              {/* 上部台形 */}
+              <polygon points="4,4 64,4 49,20 19,20" fill="#FF5500" stroke="black" strokeWidth="3" strokeLinejoin="round" />
+              {/* 下部三角形 */}
+              <polygon points="19,20 49,20 34,34" fill="#D33500" stroke="black" strokeWidth="3" strokeLinejoin="round" />
+              {/* 外枠 */}
+              <polygon points="4,4 64,4 34,34" fill="none" stroke="black" strokeWidth="3" strokeLinejoin="round" />
+            </svg>
+          </div>
+
+          {/* LINE公式アカウント友だち追加ボタン（CTAバナー） */}
+          <div className="w-full">
+            <a
+              href="https://line.me/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full block bg-[#06C755] hover:bg-[#05b34c] border-[3px] border-black rounded-2xl py-4 px-4 sm:px-6 shadow-[5px_5px_0px_#000] hover:translate-y-0.5 active:translate-y-1 transition-all text-center group cursor-pointer"
+            >
+              {/* 上部ラベル: ＼ LINE公式アカウント 無料で参加・日程調整 ／ */}
+              <div className="flex items-center justify-center gap-1.5 sm:gap-2 text-white font-bold text-xs sm:text-sm mb-2.5">
+                <span>＼</span>
+                <span className="bg-[#05a345] px-2.5 py-0.5 rounded-full text-[11px] sm:text-xs font-black">
+                  LINE公式アカウント
+                </span>
+                <span className="tracking-wide">無料で参加・日程調整</span>
+                <span>／</span>
+              </div>
+
+              {/* メイン行: [LINEアイコン] 友だち追加はこちら [ > ] */}
+              <div className="flex items-center justify-center gap-3 sm:gap-5">
+                {/* LINE白丸アイコン */}
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center shrink-0 border border-black/15 shadow-sm">
+                  <svg className="w-6 h-6 sm:w-8 sm:h-8" viewBox="0 0 40 40" fill="none">
+                    <path d="M20 5C11.716 5 5 10.373 5 17c0 4.227 2.76 7.935 6.944 9.946-.304 1.135-1.127 4.14-1.294 4.773-.213.794.288.784.606.577.252-.164 3.99-2.71 5.602-3.805.702.102 1.427.159 2.142.159 8.284 0 15-5.373 15-12S32.284 5 20 5z" fill="#06C755" />
+                    <text x="20" y="21" fill="white" fontSize="9" fontWeight="900" textAnchor="middle" dominantBaseline="middle" fontFamily="sans-serif">LINE</text>
+                  </svg>
+                </div>
+
+                {/* 友だち追加はこちら */}
+                <span className="text-2xl sm:text-3xl md:text-[32px] font-black text-white tracking-wider">
+                  友だち追加はこちら
+                </span>
+
+                {/* 右矢印白丸 */}
+                <div className="w-8 h-8 sm:w-9 sm:h-9 bg-white rounded-full flex items-center justify-center shrink-0 border-2 border-black shadow-[1px_1px_0px_#000]">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-black stroke-black" viewBox="0 0 24 24" fill="none" strokeWidth={3.5} strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="9 18 15 12 9 6" />
+                  </svg>
+                </div>
+              </div>
+            </a>
+          </div>
+        </section>
 
       </main>
 
