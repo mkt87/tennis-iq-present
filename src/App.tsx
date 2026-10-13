@@ -64,9 +64,18 @@ export default function App() {
       <main className="max-w-3xl mx-auto px-5 py-12 flex flex-col items-center gap-10 flex-grow w-full">
         
         {/* Title */}
-        <div className="bg-[#FFE500] border-4 border-black rounded-full px-8 py-5 shadow-[6px_6px_0_#000] text-center font-bold text-2xl md:text-3xl w-full leading-relaxed">
-          今回だけの4大特典は<br />
-          こちらからお受け取りください！
+        <div className="bg-[#FFE500] border-4 border-black rounded-full px-5 sm:px-8 py-5 shadow-[6px_6px_0_#000] text-center font-bold text-xl sm:text-2xl md:text-3xl w-full leading-relaxed">
+          {/* スマホ表示 */}
+          <span className="block md:hidden">
+            今回だけの<br />
+            4大特典はこちらから<br />
+            お受け取りください！
+          </span>
+          {/* PC・タブレット表示 */}
+          <span className="hidden md:block">
+            今回だけの4大特典は<br />
+            こちらからお受け取りください！
+          </span>
         </div>
 
         {/* Benefits Cards */}
@@ -75,7 +84,8 @@ export default function App() {
           {/* Benefit 1 */}
           <div className="bg-white border-4 border-black rounded-2xl p-6 md:p-8 shadow-[8px_8px_0_#000] w-full flex flex-col gap-5">
             <h2 className="text-xl md:text-2xl font-bold border-b-[3px] border-black pb-3 leading-snug">
-              1、初対戦の相手から“無意識のクセ”を読み取る！『情報収集術』
+              <span className="text-[#E60000]">特典1</span>、初対戦の相手から“無意識のクセ”を読み取る！<br />
+              『情報収集術』
             </h2>
             <div className="flex justify-center w-full">
               <img src={tokuten1Img} alt="特典1 情報収集術" className="md:h-[261px] h-auto max-w-full object-contain" />
@@ -96,7 +106,8 @@ export default function App() {
           {/* Benefit 2 */}
           <div className="bg-white border-4 border-black rounded-2xl p-6 md:p-8 shadow-[8px_8px_0_#000] w-full flex flex-col gap-5">
             <h2 className="text-xl md:text-2xl font-bold border-b-[3px] border-black pb-3 leading-snug">
-              2、【動画で解説】緊張の正体を知って試合に勝つメンタル攻略法
+              <span className="text-[#E60000]">特典2</span>、【動画で解説】緊張の正体を知って試合に勝つ<br />
+              メンタル攻略法
             </h2>
             <div className="flex justify-center w-full">
               <img src={tokuten2Img} alt="特典2 メンタル攻略法" className="md:h-[261px] h-auto max-w-full object-contain" />
@@ -117,7 +128,8 @@ export default function App() {
           {/* Benefit 3 */}
           <div className="bg-white border-4 border-black rounded-2xl p-6 md:p-8 shadow-[8px_8px_0_#000] w-full flex flex-col gap-5">
             <h2 className="text-xl md:text-2xl font-bold border-b-[3px] border-black pb-3 leading-snug">
-              3、【コピペでOK】あなた専用の『戦略』をAIが自動作成！秘密のAI指示書
+              <span className="text-[#E60000]">特典3</span>、【コピペでOK】あなた専用の『戦略』を<br />
+              AIが自動作成！秘密のAI指示書
             </h2>
             <div className="flex justify-center w-full">
               <img src={tokuten3Img} alt="特典3 秘密のAI指示書" className="md:h-[261px] h-auto max-w-full object-contain" />
@@ -138,7 +150,8 @@ export default function App() {
           {/* Benefit 4 */}
           <div className="bg-white border-4 border-black rounded-2xl p-6 md:p-8 shadow-[8px_8px_0_#000] w-full flex flex-col gap-5">
             <h2 className="text-xl md:text-2xl font-bold border-b-[3px] border-black pb-3 leading-snug">
-              4、【迷いが消える】ダブルスで勝つための『試合前3分チェックリスト』
+              <span className="text-[#E60000]">特典4</span>、【迷いが消える】ダブルスで勝つための<br />
+              『試合前3分チェックリスト』
             </h2>
             <div className="flex justify-center w-full">
               <img src={tokuten4Img} alt="特典4 ダブルスで勝つための試合前3分チェックリスト" className="md:h-[261px] h-auto max-w-full object-contain" />
@@ -149,8 +162,21 @@ export default function App() {
 ダブルスでよくある悩みを一気に解消することができます。</p>
             </div>
             <div className="mt-2">
-              <a href="https://hasegawa-office053.com/%E3%82%BF%E3%82%99%E3%83%95%E3%82%99%E3%83%AB%E3%82%B9%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%88.pdf" target="_blank" rel="noopener noreferrer" className="block w-full bg-[#FFE500] border-4 border-black rounded-xl py-4 px-4 text-center font-bold text-lg md:text-xl shadow-[4px_4px_0_#000] hover:translate-y-[4px] hover:shadow-none transition-all cursor-pointer">
-                『試合前3分チェックリスト』のダウンロードはこちら
+              <a
+                href="https://hasegawa-office053.com/%E3%82%BF%E3%82%99%E3%83%95%E3%82%99%E3%83%AB%E3%82%B9%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%88.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full bg-[#FFE500] border-4 border-black rounded-xl py-3.5 md:py-4 px-2 md:px-4 text-center font-bold text-[15px] sm:text-base md:text-xl shadow-[4px_4px_0_#000] hover:translate-y-[4px] hover:shadow-none transition-all cursor-pointer"
+              >
+                {/* スマホ表示 (2行) */}
+                <span className="block md:hidden leading-snug">
+                  『試合前3分チェックリスト』の<br />
+                  ダウンロードはこちら
+                </span>
+                {/* PC・タブレット表示 */}
+                <span className="hidden md:inline">
+                  『試合前3分チェックリスト』のダウンロードはこちら
+                </span>
               </a>
             </div>
           </div>
